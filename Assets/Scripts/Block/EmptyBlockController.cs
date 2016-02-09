@@ -8,12 +8,12 @@ public class EmptyBlockController : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     private Vector3 startPos;
 
-	void Start() {
+	private void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
         startPos = transform.position;
 	}
 
-    void Update() {
+    private void Update() {
         Debug.Log(transform.position.y);
         if (transform.position.y < -5.5) {
             transform.position = startPos;
@@ -43,7 +43,7 @@ public class EmptyBlockController : MonoBehaviour {
         }
     }
 
-	void FixedUpdate() {
+	private void FixedUpdate() {
         Vector3 unit = new Vector3(0, -1, 0);
         transform.position += unit * speed * Time.deltaTime;
 	}

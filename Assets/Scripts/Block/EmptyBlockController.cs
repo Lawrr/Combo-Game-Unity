@@ -3,43 +3,47 @@ using System.Collections;
 
 public class EmptyBlockController : MonoBehaviour {
 
-    public int speed;
+    public int speed = 1;
 
     private SpriteRenderer spriteRenderer;
-    private Vector3 startPos;
 
 	private void Start() {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        startPos = transform.position;
 	}
 
     private void Update() {
-        Debug.Log(transform.position.y);
+        // Check if reached bottom of screen
         if (transform.position.y < -5.5) {
-            transform.position = startPos;
+            Destroy(gameObject);
         }
 
         // On mouse down
         if (Input.GetMouseButtonDown(0)) {
-            Block.Color blockColor;
-            switch (Random.Range(0, 4)) {
-                case 0:
-                    blockColor = Block.Color.Blue;
-                    break;
-                case 1:
-                    blockColor = Block.Color.Green;
-                    break;
-                case 2:
-                    blockColor = Block.Color.Red;
-                    break;
-                case 3:
-                    blockColor = Block.Color.Yellow;
-                    break;
-                default:
-                    throw new System.Exception("Invalid block color");
-            }
+            // Check for mouse click on the block
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
 
-            spriteRenderer.sprite = Block.GetSprite(blockColor);
+            if (hitCollider) {
+                Block.Color blockColor;
+                switch (Random.Range(0, 4)) {
+                    case 0:
+                        blockColor = Block.Color.Blue;
+                        break;
+                    case 1:
+                        blockColor = Block.Color.Green;
+                        break;
+                    case 2:
+                        blockColor = Block.Color.Red;
+                        break;
+                    case 3:
+                        blockColor = Block.Color.Yellow;
+                        break;
+                    default:
+                        throw new System.Exception("Invalid block color");
+                }
+
+                spriteRenderer.sprite = Block.GetSprite(blockColor);
+            }
         }
     }
 

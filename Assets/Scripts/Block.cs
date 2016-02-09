@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public class Block {
-    public enum Color {Clear, Blue, Green, Red, Yellow };
+    public enum Color { Clear, Blue, Green, Red, Yellow };
 
     public static Sprite GetSprite(Color color) {
         Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/sprite-sheet");

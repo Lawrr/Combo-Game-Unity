@@ -5,7 +5,7 @@ public class Block {
     public enum Color { Clear, Blue, Green, Red, Yellow };
 
     public static Sprite GetSprite(Color color) {
-        Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/sprite-sheet");
+        Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/SpriteSheet");
         string[] spriteNames = new string[sprites.Length];
 
         for (int i = 0; i < spriteNames.Length; i++) {
@@ -18,15 +18,15 @@ public class Block {
     public static string GetSpriteName(Color color) {
         switch (color) {
             case Color.Clear:
-                return "clear-block";
+                return "ClearBlock";
             case Color.Blue:
-                return "blue-block";
+                return "BlueBlock";
             case Color.Green:
-                return "green-block";
+                return "GreenBlock";
             case Color.Red:
-                return "red-block";
+                return "RedBlock";
             case Color.Yellow:
-                return "yellow-block";
+                return "YellowBlock";
             default:
                 throw new Exception("Invalid block color");
         }

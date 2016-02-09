@@ -1,18 +1,18 @@
 fileFormatVersion: 2
 guid: 752443afb16602b44bd0507ca1790e31
-timeCreated: 1454991832
+timeCreated: 1455037866
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: green-block
-    21300002: green-preview
-    21300004: red-block
-    21300006: red-preview
-    21300008: blue-block
-    21300010: blue-preview
-    21300012: yellow-block
-    21300014: yellow-preview
-    21300016: clear-block
+    21300000: GreenBlock
+    21300002: GreenPreview
+    21300004: RedBlock
+    21300006: RedPreview
+    21300008: BlueBlock
+    21300010: BluePreview
+    21300012: YellowBlock
+    21300014: YellowPreview
+    21300016: ClearBlock
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -59,7 +59,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: green-block
+    - name: GreenBlock
       rect:
         serializedVersion: 2
         x: 0
@@ -74,7 +74,7 @@ TextureImporter:
         - {x: -185, y: -32}
         - {x: 185, y: -32}
         - {x: 185, y: 32}
-    - name: green-preview
+    - name: GreenPreview
       rect:
         serializedVersion: 2
         x: 385
@@ -89,7 +89,7 @@ TextureImporter:
         - {x: -22.5, y: -22.5}
         - {x: 22.5, y: -22.5}
         - {x: 22.5, y: 22.5}
-    - name: red-block
+    - name: RedBlock
       rect:
         serializedVersion: 2
         x: 0
@@ -104,7 +104,7 @@ TextureImporter:
         - {x: -185, y: -32}
         - {x: 185, y: -32}
         - {x: 185, y: 32}
-    - name: red-preview
+    - name: RedPreview
       rect:
         serializedVersion: 2
         x: 385
@@ -119,7 +119,7 @@ TextureImporter:
         - {x: -22.5, y: -22.5}
         - {x: 22.5, y: -22.5}
         - {x: 22.5, y: 22.5}
-    - name: blue-block
+    - name: BlueBlock
       rect:
         serializedVersion: 2
         x: 0
@@ -134,7 +134,7 @@ TextureImporter:
         - {x: -185, y: -32}
         - {x: 185, y: -32}
         - {x: 185, y: 32}
-    - name: blue-preview
+    - name: BluePreview
       rect:
         serializedVersion: 2
         x: 385
@@ -149,7 +149,7 @@ TextureImporter:
         - {x: -22.5, y: -22.5}
         - {x: 22.5, y: -22.5}
         - {x: 22.5, y: 22.5}
-    - name: yellow-block
+    - name: YellowBlock
       rect:
         serializedVersion: 2
         x: 0
@@ -164,7 +164,7 @@ TextureImporter:
         - {x: -185, y: -32}
         - {x: 185, y: -32}
         - {x: 185, y: 32}
-    - name: yellow-preview
+    - name: YellowPreview
       rect:
         serializedVersion: 2
         x: 385
@@ -179,7 +179,7 @@ TextureImporter:
         - {x: -22.5, y: -22.5}
         - {x: 22.5, y: -22.5}
         - {x: 22.5, y: 22.5}
-    - name: clear-block
+    - name: ClearBlock
       rect:
         serializedVersion: 2
         x: 0

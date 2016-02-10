@@ -1,21 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EmptyBlockController : MonoBehaviour {
+public class EmptyBlockController : Block {
 
-    public int speed = 1;
-
-    private SpriteRenderer spriteRenderer;
-
-	private void Start() {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-	}
-
-    private void Update() {
-        // Check if reached bottom of screen
-        if (transform.position.y < -5.5) {
-            Destroy(gameObject);
-        }
+    protected override void Update() {
+        base.Update();
 
         // On mouse down
         if (Input.GetMouseButtonDown(0)) {
@@ -23,32 +12,30 @@ public class EmptyBlockController : MonoBehaviour {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
 
-            if (hitCollider) {
-                Block.Color blockColor;
+            if (hitCollider == GetComponent<Collider2D>()) {
+                Color blockColor;
                 switch (Random.Range(0, 4)) {
                     case 0:
-                        blockColor = Block.Color.Blue;
+                        blockColor = Color.Blue;
                         break;
                     case 1:
-                        blockColor = Block.Color.Green;
+                        blockColor = Color.Green;
                         break;
                     case 2:
-                        blockColor = Block.Color.Red;
+                        blockColor = Color.Red;
                         break;
                     case 3:
-                        blockColor = Block.Color.Yellow;
+                        blockColor = Color.Yellow;
                         break;
                     default:
                         throw new System.Exception("Invalid block color");
                 }
 
-                spriteRenderer.sprite = Block.GetSprite(blockColor);
+                GameObject coloredBlock = (GameObject)Instantiate(Resources.Load("Prefabs/ColoredBlock"));
+                coloredBlock.GetComponent<SpriteRenderer>().sprite = GetSprite(blockColor);
+                coloredBlock.transform.position = transform.position;
+                Destroy(gameObject);
             }
         }
     }
-
-	private void FixedUpdate() {
-        Vector3 unit = new Vector3(0, -1);
-        transform.position += unit * speed * Time.deltaTime;
-	}
 }

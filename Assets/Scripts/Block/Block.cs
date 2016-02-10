@@ -1,8 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-public class Block {
+public class Block : MonoBehaviour {
+
     public enum Color { Clear, Blue, Green, Red, Yellow };
+
+    public int speed = 1;
+    public Color color = Color.Clear;
+
+    private SpriteRenderer spriteRenderer;
 
     public static Sprite GetSprite(Color color) {
         Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/SpriteSheet");
@@ -31,4 +37,25 @@ public class Block {
                 throw new Exception("Invalid block color");
         }
     }
+
+    public void SetSprite(Color color) {
+        spriteRenderer.sprite = GetSprite(color);
+    }
+
+    protected virtual void Start() {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    protected virtual void Update() {
+        // Check if reached bottom of screen
+        if (transform.position.y < -5.5) {
+            Destroy(gameObject);
+        }
+    }
+
+    protected virtual void FixedUpdate() {
+        Vector3 unit = new Vector3(0, -1);
+        transform.position += unit * speed * Time.deltaTime;
+    }
+
 }

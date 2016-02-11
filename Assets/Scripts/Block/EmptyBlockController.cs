@@ -34,7 +34,8 @@ public class EmptyBlockController : Block {
                 GameObject coloredBlock = (GameObject)Instantiate(Resources.Load("Prefabs/ColoredBlock"));
                 coloredBlock.GetComponent<SpriteRenderer>().sprite = GetSprite(blockColor);
                 coloredBlock.transform.position = transform.position;
-                Destroy(gameObject);
+                GameManager.instance.AddBlock(coloredBlock);
+                Remove();
             }
         }
     }

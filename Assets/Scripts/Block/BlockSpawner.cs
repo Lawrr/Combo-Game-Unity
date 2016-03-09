@@ -6,9 +6,9 @@ public class BlockSpawner : MonoBehaviour {
     public float startDelay = 0;
     public float blockSpawnInterval = 1;
 
-	private void Start() {
+    private void Start() {
         Invoke("BlockSpawnTick", startDelay);
-	}
+    }
 
     // This method exists so that blockSpawnInterval can be changed during runtime and work properly
     private void BlockSpawnTick() {

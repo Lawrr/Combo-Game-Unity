@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour {
     }
 
     public void RemoveBlock(GameObject block) {
-        Debug.Log("Remove");
         blocks.Remove(block);
     }
 
